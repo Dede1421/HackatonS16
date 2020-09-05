@@ -1,0 +1,32 @@
+{
+  "videos": [
+    {
+      "id": 1,
+      "title": "Titulo del video",
+      "description": "Descripción del video",
+      "views": 10,
+      "urlVideo": "https://www.w3schools.com/html/mov_bbb.mp4"
+    },
+    {
+      "id": 2,
+      "title": "Titulo del video",
+      "description": "Descripción del video",
+      "views": 10,
+      "urlVideo": "https://www.w3schools.com/html/mov_bbb.mp4"
+    },
+    {
+      "id": 3,
+      "title": "Titulo del video",
+      "description": "Descripción del video",
+      "views": 10,
+      "urlVideo": "https://www.w3schools.com/html/mov_bbb.mp4"
+    },
+    {
+      "id": 4,
+      "title": "Titulo del video",
+      "description": "Descripción del video",
+      "views": 10,
+      "urlVideo": "https://www.w3schools.com/html/mov_bbb.mp4"
+    }
+  ]
+}
