@@ -2,10 +2,13 @@
   <nav class="nav">
     <ul>
       <li>
-        <router-link to="/map">Ver mapa</router-link>
+        <router-link to="/videoadd">Agregar Video</router-link>
       </li>
       <li>
-        <router-link to="/videolist">Agregar Video</router-link>
+        <router-link to="/videolist">Mas Videos</router-link>
+      </li>
+      <li>
+        <router-link to="/map">Ver mapa</router-link>
       </li>
     </ul>
   </nav>

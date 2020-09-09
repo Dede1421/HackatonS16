@@ -2,7 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home/Home";
 import VideoList from "../views/Video/VideoList";
-
+import VideoAdd from "../views/Video/VideoAdd";
+import VideoEdit from "../views/Video/VideoEdit";
 Vue.use(VueRouter);
 
 const routes = [
@@ -13,8 +14,18 @@ const routes = [
   },
   {
     path: "/videolist",
-    name: "VideoLIst",
+    name: "VideoList",
     component: VideoList,
+  },
+  {
+    path: "/videoadd",
+    name: "VideoAdd",
+    component: VideoAdd,
+  },
+  {
+    path: "/videoedit",
+    name: "VideoEdit",
+    component: VideoEdit,
   },
 ];
 

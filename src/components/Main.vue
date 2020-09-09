@@ -10,5 +10,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.main {
+  height: 89%;
+  
+}
 </style>

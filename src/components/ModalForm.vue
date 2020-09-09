@@ -1,14 +1,15 @@
 <template>
   <div class="js_modal modal-bg">
     <div class="modal">
-      <form class="js_form">
+      <form @submit="crearVideo">
         <div class="modal-header">
           <h2>Agregar Video</h2>
         </div>
         <div class="modal-body">
-          <input class="js_name" type="text" placeholder="Titulo" required />
-          <input class="js_image" type="text" placeholder="Url de video" required />
+          <input v-model="name" type="text" placeholder="Titulo" required />
+          <input v-model="video" type="text" placeholder="Url de video" required />
           <textarea
+            v-model="description"
             class="js_description"
             cols="8"
             rows="8"
@@ -19,7 +20,9 @@
         </div>
         <div class="modal-footer">
           <button class="js_modal-accept btn-accept" type="submit">Aceptar</button>
-          <button class="js_modal-cancel btn-cancel" type="reset">Cancelar</button>
+          <router-link to="/">
+            <button class="js_modal-cancel btn-cancel" type="reset">Cancelar</button>
+          </router-link>
         </div>
       </form>
     </div>
@@ -29,39 +32,52 @@
 <script>
 export default {
   name: "Modal",
+  data() {
+    return {
+      name: "",
+      video: "",
+      description: "",
+    };
+  },
+  methods: {
+    crearVideo(event) {
+      event.preventDefault();
+      const data = {
+        title: this.name,
+        urlVideo: this.video,
+        description: this.description,
+        views: 0,
+      };
+      console.log(data);
+      fetch("http://localhost:3000/videos", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then(() => {
+        this.$router.push("/videolist");
+      });
+    },
+  },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" ::v-deep scoped>
 .modal-bg {
-  position: fixed;
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-    visibility: hidden;
-    opacity: 0;
-  transition: visibility 0s, opacity 0.5s;
-}
-
-.bg-active {
-  visibility: visible;
-  opacity: 1;
 }
 
 .modal {
-  background-color: #fff;
   max-width: 500px;
   width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
 
   .modal-header {
-    // display: flex;
-    // justify-content: space-between;
-    // align-items: center;
     padding: 20px;
   }
 
