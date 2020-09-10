@@ -1,5 +1,5 @@
 <template>
-  <ModalForm />
+  <ModalForm title="Agregar Video" btName="Agregar" />
 </template>
 
 <script>

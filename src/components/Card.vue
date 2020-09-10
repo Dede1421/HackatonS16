@@ -15,7 +15,9 @@
       <p>{{data.description}}</p>
     </div>
     <div class="card-footer">
-      <button>Ver detalle</button>
+      <router-link :to="`/videodetail/${data.id}`">
+        <button>Ver detalle</button>
+      </router-link>
     </div>
   </article>
 </template>

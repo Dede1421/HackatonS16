@@ -1,32 +1,59 @@
 <template>
-  <div class="wrap-home">
-    <router-link to="/videoadd">
-      <button class="add-video">Agregar Video</button>
-    </router-link>
+  <div>
+    <div id="container">
+      <Card v-for="video in videos" :data="video" :key="video.id" @remove="videoToDelete = video.id" />
+    </div>
+    <Modal1 :isVisible="!!videoToDelete" @cancel="close" @accept="eliminar" />
   </div>
 </template>
 
 <script>
+import "@/assets/styles/main.scss";
+
+import Card from "@/components/Card";
+import Modal1 from "@/components/Modal1";
 export default {
-  name: "App",
+  name: "Home",
   components: {
-    // VideoList,
+    Card,
+    Modal1,
+  },
+  data() {
+    return {
+      videos: [],
+      videoToDelete: null,
+    };
+  },
+  mounted() {
+    this.fetchVideos();
+  },
+  methods: {
+    eliminar() {
+      fetch(`http://localhost:3000/videos/${this.videoToDelete}`, {
+        method: "DELETE",
+      })
+        .then(this.fetchVideos)
+        .then(() => {
+          this.close();
+        });
+    },
+    close() {
+      this.videoToDelete = null;
+    },
+
+    fetchVideos() {
+      fetch("http://localhost:3000/videos")
+        .then((response) => response.json())
+        .then((videos) => (this.videos = videos));
+    },
   },
 };
 </script>
 
-<style lang="scss">
-.wrap-home {
-  height: 89vh;
+<style lang="scss" ::v-deep scoped>
+#container {
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-.add-video {
-  background-color: #ff5252;
-  width: 90%;
-  padding: 20px;
-  font-size: 1.3rem;
+  flex-wrap: wrap;
 }
 </style>

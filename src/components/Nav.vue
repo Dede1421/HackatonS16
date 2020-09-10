@@ -4,9 +4,9 @@
       <li>
         <router-link to="/videoadd">Agregar Video</router-link>
       </li>
-      <li>
+      <!-- <li>
         <router-link to="/videolist">Mas Videos</router-link>
-      </li>
+      </li> -->
       <li>
         <router-link to="/map">Ver mapa</router-link>
       </li>

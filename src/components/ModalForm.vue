@@ -3,7 +3,7 @@
     <div class="modal">
       <form @submit="crearVideo">
         <div class="modal-header">
-          <h2>Agregar Video</h2>
+          <h2>{{title}}</h2>
         </div>
         <div class="modal-body">
           <input v-model="name" type="text" placeholder="Titulo" required />
@@ -14,12 +14,12 @@
             cols="8"
             rows="8"
             placeholder="Descripción"
-            maxlength="70"
+            maxlength="208"
             required
           ></textarea>
         </div>
         <div class="modal-footer">
-          <button class="js_modal-accept btn-accept" type="submit">Aceptar</button>
+          <button class="js_modal-accept btn-accept" type="submit">{{btName}}</button>
           <router-link to="/">
             <button class="js_modal-cancel btn-cancel" type="reset">Cancelar</button>
           </router-link>
@@ -31,13 +31,17 @@
 
 <script>
 export default {
-  name: "Modal",
+  name: "ModalForm",
   data() {
     return {
       name: "",
       video: "",
       description: "",
     };
+  },
+  props: {
+    title: String,
+    btName: String,
   },
   methods: {
     crearVideo(event) {
@@ -56,7 +60,7 @@ export default {
           "Content-Type": "application/json",
         },
       }).then(() => {
-        this.$router.push("/videolist");
+        this.$router.push("/");
       });
     },
   },
