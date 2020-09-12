@@ -1,7 +1,7 @@
 <template>
   <div class="js_modal modal-bg">
     <div class="modal">
-      <form @submit="crearVideo">
+      <form @submit.prevent="accept">
         <div class="modal-header">
           <h2>{{title}}</h2>
         </div>
@@ -32,37 +32,32 @@
 <script>
 export default {
   name: "ModalForm",
-  data() {
-    return {
-      name: "",
-      video: "",
-      description: "",
-    };
-  },
+
   props: {
     title: String,
     btName: String,
+    initialName: String,
+    initialVideo: String,
+    initialDescription: String,
+  },
+  data(){
+    return{
+      name: this.initialName,
+      video: this.initialVideo,
+      description: this.initialDescription
+    }
   },
   methods: {
-    crearVideo(event) {
-      event.preventDefault();
+    accept() {
       const data = {
         title: this.name,
         urlVideo: this.video,
         description: this.description,
         views: 0,
       };
-      console.log(data);
-      fetch("http://localhost:3000/videos", {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }).then(() => {
-        this.$router.push("/");
-      });
-    },
+      
+      this.$emit('accept', data)
+    }
   },
 };
 </script>

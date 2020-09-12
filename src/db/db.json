@@ -22,18 +22,11 @@
       "urlVideo": "https://www.w3schools.com/html/mov_bbb.mp4"
     },
     {
-      "title": "Bugs Bunny Big",
-      "urlVideo": "https://www.w3schools.com/html/mov_bbb.mp4",
+      "id": 4,
+      "title": "Titulo del video",
       "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum nulla fugit iure qui sed reprehenderit totam placeat ab excepturi, a enim debitis. Laudantium, earum. Eos delectus labore recusandae sequi soluta!",
-      "views": 0,
-      "id": 4
-    },
-    {
-      "title": "Big Buck Bunny",
-      "urlVideo": "https://www.w3schools.com/html/mov_bbb.mp4",
-      "description": "Big Buck Bunny was film directed by S\n– The MovieSquad Audience Award ",
-      "views": 0,
-      "id": 5
+      "views": 10,
+      "urlVideo": "https://www.w3schools.com/html/mov_bbb.mp4"
     }
   ]
 }

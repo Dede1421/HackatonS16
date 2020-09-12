@@ -1,7 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home/Home";
-// import VideoList from "../views/Video/VideoList";
 import VideoAdd from "../views/Video/VideoAdd";
 import VideoEdit from "../views/Video/VideoEdit";
 import VideoDetail from "../views/Video/VideoDetail";
@@ -14,18 +13,13 @@ const routes = [
     name: "Home",
     component: Home,
   },
-  // {
-  //   path: "/videolist",
-  //   name: "VideoList",
-  //   component: VideoList,
-  // },
   {
     path: "/videoadd",
     name: "VideoAdd",
     component: VideoAdd,
   },
   {
-    path: "/videoedit",
+    path: "/videoedit/:id",
     name: "VideoEdit",
     component: VideoEdit,
   },
@@ -33,7 +27,6 @@ const routes = [
     path: "/videodetail/:id",
     name: "VideoDetail",
     component: VideoDetail,
-    props: true,
   },
   {
     path: "/map",

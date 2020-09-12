@@ -2,7 +2,7 @@
   <article>
     <div class="card-head">
       <div class="buttons-card">
-        <router-link to="/videoedit">
+        <router-link :to="`/videoedit/${data.id}`">
           <button class="edit">Editar</button>
         </router-link>
         <button class="close" @click="remove">X</button>
